@@ -1,12 +1,18 @@
-//const tennis = require('./tennis')
+function TennisGame(){
+  this.reset = () => {
 
-test('tennis', () => {
+  }
+  this.echo = () => {
+    return 'Love - Love'
+  }
+}
+
+test('Echo "Love - Love" when game start', () => {
   //arrange
-  let score = 'reset'
-
+  let app = new TennisGame()
   //act
-  let result = tennis(score)
-
+  app.reset();
+  let result = app.echo()
   //assert
-  expect(result).toBe('love love')
+  expect(result).toBe('Love - Love')
 })
