@@ -43,24 +43,8 @@ test('Echo "Fifteen - Love" when playerA get first score', () => {
     // Assert
     expect(result).toBe('Fifteen - Love')
 })
-test('Echo "Forthy - Thirty" when score ', () => {
-    // Arrange
-    let app = new TennisGame()
-    app.reset()
-    app.playerAGetScore()
-    app.playerAGetScore()
-    app.playerAGetScore()
-    app.playerBGetScore()
-    app.playerBGetScore()
 
-    // Act
-    let result = app.echo()
-
-    // Assert
-    expect(result).toBe('Forthy - Thirty')
-})
-
-test('Echo "Love - Fifteen" when playerB gte fiest score ', () => {
+test('Echo "Love - Fifteen" when playerB gte first score ', () => {
     // Arrange
     let app = new TennisGame()
     app.reset()
@@ -71,4 +55,19 @@ test('Echo "Love - Fifteen" when playerB gte fiest score ', () => {
 
     // Assert
     expect(result).toBe('Love - Fifteen')
+})
+
+test('Echo "Thirty - Fifteen" when score 30 - 15 ', () => {
+    // Arrange
+    let app = new TennisGame()
+    app.reset()
+    app.playerAGetScore()
+    app.playerAGetScore()
+    app.playerBGetScore()
+
+    // Act
+    let result = app.echo()
+
+    // Assert
+    expect(result).toBe('Thirty - Fifteen')
 })
