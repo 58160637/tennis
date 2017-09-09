@@ -21,53 +21,54 @@ function TennisGame() {
     }
 }
 
-test('Echo "Love - Love" when game start', () => {
-  //arrange
-  let app = new TennisGame()
-  //act
-  app.reset();
-  let result = app.echo()
-  //assert
-  expect(result).toBe('Love - Love')
-})
+describe('echo()' , () => {
+  let app
 
-test('Echo "Fifteen - Love" when playerA get first score', () => {
-    // Arrange
-    let app = new TennisGame()
+  beforeEach(() => {
+    app = new TennisGame()
     app.reset()
-    app.playerAGetScore()
+  })
 
-    // Act
+  test('Echo "Love - Love" when game start', () => {
+
     let result = app.echo()
+    //assert
+    expect(result).toBe('Love - Love')
+  })
 
-    // Assert
-    expect(result).toBe('Fifteen - Love')
-})
+  test('Echo "Fifteen - Love" when playerA get first score', () => {
 
-test('Echo "Love - Fifteen" when playerB gte first score ', () => {
-    // Arrange
-    let app = new TennisGame()
-    app.reset()
-    app.playerBGetScore()
+      app.playerAGetScore()
 
-    // Act
-    let result = app.echo()
+      // Act
+      let result = app.echo()
 
-    // Assert
-    expect(result).toBe('Love - Fifteen')
-})
+      // Assert
+      expect(result).toBe('Fifteen - Love')
+  })
 
-test('Echo "Thirty - Fifteen" when score 30 - 15 ', () => {
-    // Arrange
-    let app = new TennisGame()
-    app.reset()
-    app.playerAGetScore()
-    app.playerAGetScore()
-    app.playerBGetScore()
+  test('Echo "Love - Fifteen" when playerB gte first score ', () => {
 
-    // Act
-    let result = app.echo()
+      app.playerBGetScore()
 
-    // Assert
-    expect(result).toBe('Thirty - Fifteen')
+      // Act
+      let result = app.echo()
+
+      // Assert
+      expect(result).toBe('Love - Fifteen')
+  })
+
+  test('Echo "Thirty - Fifteen" when score 30 - 15 ', () => {
+
+      app.playerAGetScore()
+      app.playerAGetScore()
+      app.playerBGetScore()
+
+      // Act
+      let result = app.echo()
+
+      // Assert
+      expect(result).toBe('Thirty - Fifteen')
+  })
+
 })
